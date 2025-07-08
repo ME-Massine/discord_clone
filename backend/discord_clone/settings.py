@@ -133,3 +133,9 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',  # We'll switch to IsAuthenticated after auth setup
+    ]
+}
