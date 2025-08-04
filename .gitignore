@@ -1,1 +1,5 @@
 /backend/venv/
+node_modules/
+dist/
+.env
+/frontend-starter/node_modules/
