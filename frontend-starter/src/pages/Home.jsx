@@ -1,3 +1,3 @@
 export default function Home() {
-  return <h1 className="text-2xl font-bold p-4">Welcome to Discord Clone</h1>;
+  return <h2 className="text-2xl">Welcome to the home page!</h2>;
 }
