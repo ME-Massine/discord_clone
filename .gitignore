@@ -1,5 +1,28 @@
-/backend/venv/
+# Python virtual environment
+venv/
+backend/venv/
+
+# Node.js modules
 node_modules/
+frontend-starter/node_modules/
+
+# Vite build output
 dist/
+frontend-starter/dist/
+
+# Environment variables
 .env
-/frontend-starter/node_modules/
+.env.*
+
+# IDE config files
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
