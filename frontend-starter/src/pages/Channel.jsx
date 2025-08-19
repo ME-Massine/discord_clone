@@ -1,14 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
-import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-import { format, parse, startOfWeek, getDay } from "date-fns";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import { enUS } from "date-fns/locale";
-import MessageList from "../components/MessageList";
+import { useState, useEffect } from "react";
 import MessageInput from "../components/MessageInput";
 
-const locales = { "en-US": enUS };
-const localizer = dateFnsLocalizer({ format, parse, startOfWeek, getDay, locales });
+
 
 const Channel = () => {
     const { id } = useParams();
@@ -72,8 +66,7 @@ const Channel = () => {
 
     console.log('Channel rendering with messages:', messages.length);
 
-    const [events, setEvents] = useState([]);
-    const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
+
 
     // Save messages for this channel
     useEffect(() => {
@@ -113,19 +106,7 @@ const Channel = () => {
         showToast("All messages unpinned");
     };
 
-    const handleAddEvent = (e) => {
-        e.preventDefault();
-        if (!newEvent.title || !newEvent.start || !newEvent.end) return;
-        setEvents((prev) => [
-            ...prev,
-            {
-                ...newEvent,
-                start: new Date(newEvent.start),
-                end: new Date(newEvent.end),
-            },
-        ]);
-        setNewEvent({ title: "", start: "", end: "" });
-    };
+
 
     const showToast = (text) => {
         setToast(text);
@@ -136,13 +117,7 @@ const Channel = () => {
 
     return (
         <div className="flex flex-col h-full bg-transparent text-white relative">
-            {/* Debug Info */}
-            <div className="bg-red-500/20 p-4 border border-red-500/50">
-                <p>DEBUG: Channel ID: {id}</p>
-                <p>DEBUG: Channel Name: {getChannelName(id)}</p>
-                <p>DEBUG: Messages Count: {messages.length}</p>
-                <p>DEBUG: Active Tab: {activeTab}</p>
-            </div>
+
 
             {/* Toast Notification */}
             {toast && (
@@ -155,7 +130,7 @@ const Channel = () => {
             <div className="bg-black/20 backdrop-blur-xl border-b border-white/10 p-4">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center space-x-4">
-                        <h2 className="text-2xl font-bold gradient-text">#{getChannelName(id)}</h2>
+                        <h2 className="text-2xl font-bold text-white">#{getChannelName(id)}</h2>
                         <div className="flex items-center space-x-2 text-sm text-white/60">
                             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                             <span>Active now</span>
@@ -202,9 +177,27 @@ const Channel = () => {
                 {/* Messages Tab */}
                 {activeTab === "messages" && (
                     <div className="flex flex-col h-full">
-                        <div className="flex-1 p-4">
-                            <h3 className="text-xl font-bold text-white mb-4">Messages Tab Active</h3>
-                            <p className="text-white/70">This is the messages tab content.</p>
+                        <div className="flex-1 overflow-y-auto p-4">
+                            <div className="space-y-4">
+                                {messages.map((message) => (
+                                    <div key={message.id} className="bg-white/5 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                                        <div className="flex items-start space-x-3">
+                                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white font-bold text-sm">
+                                                {message.sender.charAt(0)}
+                                            </div>
+                                            <div className="flex-1">
+                                                <div className="flex items-center space-x-2 mb-1">
+                                                    <span className="font-semibold text-white">{message.sender}</span>
+                                                    <span className="text-xs text-white/60">
+                                                        {message.timestamp.toLocaleTimeString()}
+                                                    </span>
+                                                </div>
+                                                <p className="text-white/90">{message.text}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                         <MessageInput onSend={handleSend} />
                     </div>

@@ -26,7 +26,18 @@
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #60a5fa, #818cf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #60a5fa;
+    filter: drop-shadow(0 0 2px rgba(96, 165, 250, 0.5));
+  }
+  
+  /* Fallback for gradient text */
+  .gradient-text-fallback {
+    @apply text-white;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
   }
   
   .gradient-border {

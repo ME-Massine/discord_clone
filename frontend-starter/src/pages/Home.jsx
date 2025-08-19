@@ -64,15 +64,15 @@ const Home = () => {
       <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-purple-500/10 rounded-full blur-3xl floating-animation" style={{ animationDelay: '4s' }}></div>
 
       <div className="relative z-10 text-center max-w-6xl w-full">
-        {/* Main Title */}
-        <div className={`mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-6xl md:text-7xl font-black mb-6 gradient-text leading-tight">
-            Enterprise Communication Platform
-          </h1>
-          <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            Professional team collaboration with AI-powered insights, enterprise security, and business process integration
-          </p>
-        </div>
+                 {/* Main Title */}
+         <div className={`mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+           <h1 className="text-6xl md:text-7xl font-black mb-6 text-white leading-tight">
+             Enterprise Hub
+           </h1>
+           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+             Professional team collaboration with AI-powered insights, enterprise security, and business process integration
+           </p>
+         </div>
 
         {/* Value Proposition */}
         <div className={`mb-12 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

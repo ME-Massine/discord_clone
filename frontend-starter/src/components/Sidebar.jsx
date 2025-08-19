@@ -32,33 +32,7 @@ export default function Sidebar() {
 
   return (
     <aside className={`${isCollapsed ? 'w-20' : 'w-72'} transition-all duration-300 ease-in-out h-screen flex flex-col sidebar-gradient`}>
-      {/* Server List */}
-      <div className="p-4 space-y-3">
-        {dummyServers.map((server) => (
-          <div
-            key={server.id}
-            className={`relative group cursor-pointer transition-all duration-300 ${
-              server.active ? 'scale-110' : 'hover:scale-105'
-            }`}
-          >
-            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl font-bold transition-all duration-300 ${
-              server.active 
-                ? 'bg-gradient-to-br from-blue-500 to-indigo-500 shadow-lg shadow-blue-500/50' 
-                : 'bg-gradient-to-br from-slate-600 to-slate-700 hover:from-slate-500 hover:to-slate-600 backdrop-blur-xl border border-slate-500/30'
-            }`}>
-              {server.icon}
-            </div>
-            {!isCollapsed && (
-              <div className={`absolute left-16 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap z-50`}>
-                {server.name}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
 
-      {/* Divider */}
-      <div className="mx-4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 
       {/* Business Features Section */}
       {/* <div className="p-4 space-y-4">
@@ -106,7 +80,7 @@ export default function Sidebar() {
       <div className="flex-1 p-4 space-y-4">
         <div className="flex items-center justify-between">
           {!isCollapsed && (
-            <h2 className="text-lg font-bold gradient-text">Communication</h2>
+            <h2 className="text-lg font-bold text-white">Communication</h2>
           )}
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
