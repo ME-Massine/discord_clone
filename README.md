@@ -175,17 +175,6 @@ This platform addresses the critical gap that Discord leaves for business users.
 
 We welcome contributions from the community! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
-## 📄 **License**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 **Support**
-
-For business inquiries and enterprise support:
-- **Email**: enterprise@platform.com
-- **Phone**: +1 (555) 123-4567
-- **Documentation**: [docs.platform.com](https://docs.platform.com)
-
 ---
 
 **Built with ❤️ for modern internal company collaboration**
